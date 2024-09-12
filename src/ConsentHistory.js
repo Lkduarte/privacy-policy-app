@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from './axiosConfig';
 
 const ConsentHistory = ({ userId }) => {
   const [history, setHistory] = useState([]);
