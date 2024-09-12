@@ -11,10 +11,10 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" exact component={Register} />
-          <Route path="/dashboard" component={UserDashboard} />
-          <Route path="/consent-history" component={ConsentHistory} />
-          <Route path="/notifications" component={Notification} />
+          <Route path="/" element={<Register />} />
+          <Route path="/dashboard" element={<UserDashboard />} />
+          <Route path="/consent-history" element={<ConsentHistory />} />
+          <Route path="/notifications" element={<Notification />} />
         </Routes>
       </div>
     </Router>
