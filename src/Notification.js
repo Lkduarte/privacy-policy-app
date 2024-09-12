@@ -1,27 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import axios from './axiosConfig';
 
-const Notification = ({ userId }) => {
-  const [notifications, setNotifications] = useState([]);
+const Notification = () => {
+  const handleAccept = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch('/aceitar-novos-termos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-  useEffect(() => {
-    const fetchNotifications = async () => {
-      const response = await axios.get(`/api/users/${userId}/notifications`);
-      setNotifications(response.data);
-    };
-
-    fetchNotifications();
-  }, [userId]);
+      if (response.ok) {
+        alert('Você aceitou os novos termos.');
+      } else {
+        alert('Houve um problema ao aceitar os termos.');
+      }
+    } catch (error) {
+      alert('Erro ao aceitar os novos termos.');
+    }
+  };
 
   return (
     <div>
-      <h2>Notificações</h2>
-      {notifications.map((notification) => (
-        <div key={notification.id}>
-          <p>{notification.message}</p>
-          <a href={notification.link} target="_blank" rel="noopener noreferrer">Ver Detalhes</a>
-        </div>
-      ))}
+      <h1>Notificação de Alterações</h1>
+      <p>Os termos de uso foram atualizados. Por favor, reveja e aceite os novos termos.</p>
+      <a href="/novos-termos" target="_blank">Ver Novos Termos</a>
+      <form onSubmit={handleAccept}>
+        <button type="submit">Aceitar Novos Termos</button>
+      </form>
     </div>
   );
 };
