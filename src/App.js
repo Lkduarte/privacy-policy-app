@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Register from './Register';
+import UserDashboard from './UserDashboard';
+import ConsentHistory from './ConsentHistory';
+import Notification from './Notification';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={Register} />
+          <Route path="/dashboard" component={UserDashboard} />
+          <Route path="/consent-history" component={ConsentHistory} />
+          <Route path="/notifications" component={Notification} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
