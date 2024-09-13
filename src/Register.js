@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import axios from './axiosConfig';
+import { useNavigate } from 'react-router-dom';
 import "./App.css";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (consent) {
       try {
-        await axios.post("/api/register", { name, email });
+        const response =  await axios.post("/api/register", { name, email });
+
+        const userId = response.data.id;
+
+        navigate(`/dashboard?id=${userId}`);
         alert("Registrado com sucesso!");
       } catch (error) {
         alert("Erro ao registrar");
@@ -24,6 +30,7 @@ const Register = () => {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
+      <h1>Registro</h1>
         <label>
           Nome:
           <input
