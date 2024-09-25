@@ -3,7 +3,7 @@ import axios from './axiosConfig';
 import { useNavigate } from 'react-router-dom';
 import "./App.css";
 
-const Notification = () => {
+const Termo = () => {
   const [consent, setConsent] = useState(false);
   const navigate = useNavigate();
 
@@ -52,4 +52,4 @@ const Notification = () => {
   );
 };
 
-export default Notification;
+export default Termo;

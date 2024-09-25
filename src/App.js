@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Register from './Register';
 import UserDashboard from './UserDashboard';
 import ConsentHistory from './ConsentHistory';
-import Notification from './Notification';
+import Termo from './Termo';
 import { Routes } from 'react-router-dom/dist';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Register />} />
           <Route path="/dashboard" element={<UserDashboard />} />
           <Route path="/consent-history" element={<ConsentHistory />} />
-          <Route path="/notifications" element={<Notification />} />
+          <Route path="/termo" element={<Termo />} />
         </Routes>
       </div>
     </Router>

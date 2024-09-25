@@ -54,7 +54,7 @@ router.delete('/users/:id', (req, res) => {
       if (err) {
         return res.status(500).json({ error: err.message });
       }
-      db.run(`DELETE FROM notifications WHERE user_id = ?`, [userId], (err) => {
+      db.run(`DELETE FROM termo WHERE user_id = ?`, [userId], (err) => {
         if (err) {
           return res.status(500).json({ error: err.message });
         }
@@ -76,9 +76,9 @@ router.get('/users/:id/consent-history', (req, res) => {
 });
 
 // Obter notificações
-router.get('/users/:id/notifications', (req, res) => {
+router.get('/users/:id/termo', (req, res) => {
   const userId = req.params.id;
-  db.all(`SELECT * FROM notifications WHERE user_id = ?`, [userId], (err, rows) => {
+  db.all(`SELECT * FROM termo WHERE user_id = ?`, [userId], (err, rows) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }

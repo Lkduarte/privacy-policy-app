@@ -15,7 +15,7 @@ db.serialize(() => {
     FOREIGN KEY (user_id) REFERENCES users(id)
   )`);
 
-  db.run(`CREATE TABLE notifications (
+  db.run(`CREATE TABLE termo (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
     message TEXT,
