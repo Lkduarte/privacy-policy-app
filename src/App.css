@@ -133,3 +133,24 @@ a:hover {
 .delete-button:active {
   transform: scale(0.98); /* Efeito de clique */
 }
+
+.consent-history-container {
+  padding: 20px;
+}
+
+.consent-history-container h2 {
+  margin-bottom: 20px;
+}
+
+.consent-history-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.consent-history-container li {
+  margin-bottom: 10px;
+}
+
+.consent-history-container p {
+  margin-top: 10px;
+}

@@ -1,36 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import axios from './axiosConfig';
-import { useSearchParams, useNavigate } from 'react-router-dom';
-import './UserDashboard.css';
+import axios from './axiosConfig'; // Usar a mesma configuração de axios
+import { useNavigate, useParams } from 'react-router-dom';
+import './App.css'; // Assumindo que há um arquivo CSS compartilhado
 
 const UserDashboard = () => {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState({ name: '', email: '' });
   const [isEditing, setIsEditing] = useState(false);
-  const [searchParams] = useSearchParams();
-  const userId = searchParams.get('id');
   const navigate = useNavigate();
+  const { userId } = useParams();
 
   useEffect(() => {
     const fetchUserData = async () => {
-      if (userId) {
-        try {
-          const response = await axios.get(`/api/users/${userId}`);
-          setUserData(response.data);
-        } catch (error) {
-          alert('Erro ao carregar os dados do usuário');
-        }
+      try {
+        const response = await axios.get(`/api/users/${userId}`);
+        setUserData(response.data);
+      } catch (error) {
+        alert('Erro ao carregar os dados do usuário');
       }
     };
+
     fetchUserData();
   }, [userId]);
-
-  if (!userData) return <div>Carregando...</div>;
 
   const handleEdit = async (event) => {
     event.preventDefault();
     try {
       await axios.put(`/api/users/${userId}`, userData);
       setIsEditing(false);
+      alert('Dados atualizados com sucesso!');
     } catch (error) {
       alert('Erro ao atualizar os dados');
     }
@@ -49,7 +46,7 @@ const UserDashboard = () => {
   };
 
   return (
-    <div className="dashboard-container">
+    <div className="form-container">
       {isEditing ? (
         <form className="dashboard-form" onSubmit={handleEdit}>
           <h1>Painel do Usuário</h1>
@@ -57,7 +54,7 @@ const UserDashboard = () => {
             Nome:
             <input 
               type="text" 
-              value={userData.name || ''} 
+              value={userData.name} 
               onChange={(e) => setUserData({ ...userData, name: e.target.value })} 
               required 
             />
@@ -66,7 +63,7 @@ const UserDashboard = () => {
             Email:
             <input 
               type="email" 
-              value={userData.email || ''} 
+              value={userData.email} 
               onChange={(e) => setUserData({ ...userData, email: e.target.value })} 
               required 
             />
