@@ -5,6 +5,7 @@ import "../App.css";
 
 const Termo = () => {
   const [consent, setConsent] = useState(false);
+  const [option, setOption] = useState(false);
   const navigate = useNavigate();
   const userId = localStorage.getItem('userId');
 
@@ -35,8 +36,27 @@ const Termo = () => {
         <a href="/novos-termos" target="_blank" rel="noopener noreferrer">
           Ver Novos Termos
         </a>
-        <br></br>
-        <label>
+        <label><p>Você deseja receber notificações por:</p>
+        <input
+            type="checkbox"
+            checked={option}
+            onChange={(e) => setOption(e.target.checked)}
+            required
+          />E-mail<p></p>
+          <input
+            type="checkbox"
+            checked={option}
+            onChange={(e) => setOption (e.target.checked)}
+            required
+          />SMS
+          <p></p>
+          <input
+            type="checkbox"
+            checked={option}
+            onChange={(e) => setOption (e.target.checked)}
+            required
+          />Whatsapp<p></p><br></br>
+          <p></p>
           <input
             type="checkbox"
             checked={consent}
