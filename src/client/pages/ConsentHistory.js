@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import axios from './axiosConfig';
-import './App.css';
-import { useParams } from 'react-router-dom';
+import axios from '../../server/axiosConfig';
+import '../App.css';
 
 const ConsentHistory = () => {
   const [history, setHistory] = useState([]);
-  const { userId } = useParams();
+  const userId = localStorage.getItem('userId');
 
   useEffect(() => {
     const fetchHistory = async () => {

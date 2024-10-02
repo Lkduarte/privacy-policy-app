@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import axios from './axiosConfig'; // Usar a mesma configuração de axios
-import { useNavigate, useParams } from 'react-router-dom';
-import './App.css'; // Assumindo que há um arquivo CSS compartilhado
+import axios from '../../server/axiosConfig'; 
+import { useNavigate } from 'react-router-dom';
+import './../App.css';
 
 const UserDashboard = () => {
   const [userData, setUserData] = useState({ name: '', email: '' });
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
-  const { userId } = useParams();
+  const userId = localStorage.getItem('userId');
 
   useEffect(() => {
+
     const fetchUserData = async () => {
       try {
         const response = await axios.get(`/api/users/${userId}`);
         setUserData(response.data);
       } catch (error) {
-        alert('Erro ao carregar os dados do usuário');
+        return;
       }
     };
 
@@ -24,6 +25,11 @@ const UserDashboard = () => {
 
   const handleEdit = async (event) => {
     event.preventDefault();
+    if (!userData.name || !userData.email) {
+      alert('Nome e email são obrigatórios.');
+      return;
+    }
+
     try {
       await axios.put(`/api/users/${userId}`, userData);
       setIsEditing(false);
@@ -38,6 +44,9 @@ const UserDashboard = () => {
       try {
         await axios.delete(`/api/users/${userId}`);
         alert('Conta excluída com sucesso');
+
+        localStorage.removeItem('userId');
+
         navigate('/');
       } catch (error) {
         alert('Erro ao excluir a conta');

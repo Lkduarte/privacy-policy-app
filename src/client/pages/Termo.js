@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import axios from './axiosConfig';
+import axios from '../../server/axiosConfig';
 import { useNavigate } from 'react-router-dom';
-import "./App.css";
+import "../App.css";
 
 const Termo = () => {
   const [consent, setConsent] = useState(false);
   const navigate = useNavigate();
+  const userId = localStorage.getItem('userId');
 
   const handleAcceptTerms = async (event) => {
     event.preventDefault();
     if (consent) {
       try {
-        const response = await axios.post('/aceitar-novos-termos');
+        const response = await axios.post('api/aceitar-novos-termos', { user_id: userId });
         if (response.status === 200) {
           alert('Você aceitou os novos termos.');
           navigate('/dashboard'); // Redirecionar para o dashboard ou qualquer outra página apropriada

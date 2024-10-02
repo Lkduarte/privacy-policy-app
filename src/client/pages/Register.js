@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axios from './axiosConfig';
+import axios from '../../server/axiosConfig';
 import { useNavigate } from 'react-router-dom';
-import "./App.css";
+import "../../client/App.css";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -11,21 +11,37 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (consent) {
-      try {
-        const response =  await axios.post("/api/register", { name, email });
 
-        const userId = response.data.id;
-
-        navigate(`/dashboard?id=${userId}`);
-        alert("Registrado com sucesso!");
-      } catch (error) {
-        alert("Erro ao registrar");
-      }
-    } else {
-      alert("Você deve concordar com os termos de privacidade");
+    if (!name || !email) {
+      alert("Preencha todos os campos.");
+      return;
     }
-  };
+
+  if (consent) {
+    try {
+      const response = await axios.post('/api/register', { name, email });
+
+      const userId = response.data.id;
+
+      localStorage.setItem('userId', userId);
+
+      navigate('/dashboard');
+      alert("Registrado com sucesso!");
+    } catch (error) {
+      console.error("Erro ao registrar:", error);
+
+      if (error.response) {
+        alert(`Erro: ${error.response.data.message || "Erro ao registrar."}`);
+      } else if (error.request) {
+        alert("Sem resposta do servidor. Verifique sua conexão.");
+      } else {
+        alert("Ocorreu um erro inesperado.");
+      }
+    }
+  } else {
+    alert("Você deve concordar com os termos de privacidade.");
+  }
+};
 
   return (
     <div className="form-container">
