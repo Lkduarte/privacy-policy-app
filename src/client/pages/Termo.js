@@ -15,7 +15,7 @@ const Termo = () => {
         const response = await axios.post('api/aceitar-novos-termos', { user_id: userId });
         if (response.status === 200) {
           alert('Você aceitou os novos termos.');
-          navigate('/dashboard'); // Redirecionar para o dashboard ou qualquer outra página apropriada
+          navigate('/dashboard'); // Redirecionar para o dashboard
         } else {
           alert('Houve um problema ao aceitar os termos.');
         }
@@ -35,6 +35,7 @@ const Termo = () => {
         <a href="/novos-termos" target="_blank" rel="noopener noreferrer">
           Ver Novos Termos
         </a>
+        <br></br>
         <label>
           <input
             type="checkbox"
