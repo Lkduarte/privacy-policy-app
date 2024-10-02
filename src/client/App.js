@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Login from './pages/Login';
 import Register from './pages/Register';
 import UserDashboard from './pages/UserDashboard';
 import ConsentHistory from './pages/ConsentHistory';
@@ -14,7 +15,8 @@ function App() {
       <div className="App">
       <Navbar />
         <Routes>
-          <Route path="/" element={<Register />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<ProtectedRoute><UserDashboard /></ProtectedRoute>} />
           <Route path="/consent-history" element={<ProtectedRoute><ConsentHistory /></ProtectedRoute>} />
           <Route path="/termo" element={<ProtectedRoute><Termo /></ProtectedRoute>} />
