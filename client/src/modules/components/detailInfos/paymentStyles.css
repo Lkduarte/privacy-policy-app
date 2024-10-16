@@ -1,0 +1,28 @@
+h4 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.paymentContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.vista {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.options img {
+  margin-left: 10px;
+  width: 30px;
+}
+
+.method {
+  font-size: 12px;
+  margin-left: 10px;
+}

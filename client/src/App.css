@@ -1,0 +1,163 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  background-color: white;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header, footer {
+  flex-shrink: 0;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.card {
+  transform: translateY(-60px); 
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  max-width: 450px;
+  padding: 50px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0); 
+  border-radius: 12px; 
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); 
+  transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.card:hover {
+  transform: translateY(-55px); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
+}
+
+h1 {
+  text-align: center; 
+  margin-bottom: 30px; 
+  color: #343a40; 
+  font-family: 'Roboto', sans-serif;
+  font-size: 26px; 
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 14px; 
+  color: #495057; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+  width: 100%;
+  padding: 12px; 
+  margin: 10px 0; 
+  border: 1px solid #ced4da; 
+  border-radius: 6px; 
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; 
+  font-family: 'Roboto', sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none; 
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+button {
+  background-color: #007bff;
+  color: #ffffff; 
+  cursor: pointer; 
+  font-size: 16px; 
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+}
+
+button:active {
+  transform: scale(0.98); 
+}
+
+a {
+  color: #007bff; 
+  text-decoration: none; 
+  text-align: center;
+  display: block; 
+  margin-top: 10px; 
+  font-family: 'Roboto', sans-serif; 
+}
+
+p {
+  padding-top: 30px;
+  color: black;
+  text-decoration: none; 
+  text-align: center; 
+  display: block;
+  margin-top: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+a:hover {
+  text-decoration: underline; 
+  color: #0056b3; 
+}
+
+.sweetalert2-title {
+  font-family: 'Roboto', sans-serif; 
+  color: #343a40; 
+}
+
+.sweetalert2-content {
+  font-family: 'Roboto', sans-serif; 
+  color: #495057; 
+}
+
+.sweetalert2-confirm {
+  background-color: #007bff; 
+  color: #ffffff; 
+}
+
+.sweetalert2-confirm:hover {
+  background-color: #0056b3; 
+}
+
+.dashboard-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dashboard-info {
+  text-align: center; 
+  margin-top: 20px; 
+}
+
+.dashboard-info p {
+  font-size: 16px;
+  color: #495057;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #ffffff; 
+  margin-top: 15px; 
+}
+
+.delete-button:hover {
+  background-color: #c82333; 
+}

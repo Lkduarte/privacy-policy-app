@@ -1,0 +1,23 @@
+.custom-popup {
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .custom-title {
+    font-size: 24px;
+    color: #4FB4BC; 
+    font-weight: bold; 
+  }
+  
+  .custom-confirm-button {
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    background-color: #4FB4BC; 
+    color: white; 
+  }
+  
+  .custom-confirm-button:hover {
+    background-color: #3A9DA2;
+  }
+  

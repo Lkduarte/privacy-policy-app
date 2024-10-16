@@ -1,0 +1,61 @@
+.termoContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2%;
+  width: 70%;
+  margin: 150px auto;
+  border: 1px solid #595959;
+  padding: 20px;
+}
+
+.termoButtonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 4%;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.button {
+  padding: 10px 0;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+}
+
+.loginButton {
+  background-color: #4fb4bc;
+}
+
+.cancelButton {
+  background-color: #6f6a6a;
+}
+
+.checkboxContainer {
+  margin-top: 10px;
+  color: #595959;
+}
+
+.checkbox {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+#userTermo {
+  resize: none;
+  background-color: transparent;
+  color: #595959;
+  border: 1px solid #595959;
+  margin: 20px 0;
+  overflow-y: scroll;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.termoContainer h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
