@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaUser, FaShoppingCart } from "react-icons/fa";
+import { FaUser, FaShoppingCart, FaFileAlt } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./headerStyles.css";
 import { useContext } from "react";
@@ -35,6 +35,7 @@ function Header() {
             <FaShoppingCart />
             <span className="tooltip">Carrinho</span>
           </div>
+
           <div
             className="user-icon"
             onMouseOver={handleMouseOver}
@@ -62,6 +63,14 @@ function Header() {
                 )}
               </div>
             )}
+          </div>
+
+          <div
+            className="terms-icon"
+            onClick={() => navigate("/editActualTerm")}
+          >
+            <FaFileAlt />
+            <span className="tooltip">Termos de uso</span>
           </div>
         </div>
       </div>

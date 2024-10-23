@@ -62,17 +62,17 @@
 .rightSide {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 20px; 
 }
 
-.cart {
+.cart, .user-icon, .terms-icon {
   position: relative; 
   cursor: pointer; 
 }
 
 .tooltip {
   visibility: hidden; 
-  width: 60px; 
+  width: 100px; 
   background-color: #555; 
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   color: #fff; 
@@ -89,14 +89,16 @@
   transition: opacity 0.3s;
 }
 
-.cart:hover .tooltip {
+.cart:hover .tooltip,
+.user-icon:hover .tooltip,
+.terms-icon:hover .tooltip {
   visibility: visible;
   opacity: 1; 
 }
 
-.user-icon {
-  position: relative;
-  cursor: pointer;
+.user-icon, .terms-icon {
+  display: flex;
+  align-items: center;
 }
 
 .user-dropdown {
@@ -111,7 +113,12 @@
   flex-direction: column;
   z-index: 10;
   min-width: 150px;
-  visibility: visible; 
+  visibility: hidden; 
+}
+
+.user-icon:hover .user-dropdown {
+  display: block;
+  visibility: visible;
 }
 
 .user-dropdown button {
@@ -126,7 +133,8 @@
   color: #000;
 }
 
-.user-icon:hover .user-dropdown {
-  display: block;
-  visibility: visible;
+.terms-icon {
+  position: relative;
+  cursor: pointer;
 }
+

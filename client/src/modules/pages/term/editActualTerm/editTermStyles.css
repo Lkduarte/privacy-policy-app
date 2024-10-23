@@ -1,0 +1,94 @@
+.termoContainer {
+  width: 100%; /* Para ocupar toda a largura do espaço disponível */
+  max-width: 700px; /* Limite máximo de largura, semelhante ao estilo anterior */
+  margin: 0 auto;
+  padding: 40px; /* Maior padding para mais espaço interno */
+  background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Gradiente para um visual mais moderno */
+  border-radius: 12px; /* Arredondamento dos cantos */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Sombra mais forte para destacar */
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espaçamento entre os itens */
+}
+
+.checkbox {
+  margin-right: 10px; /* Espaçamento entre o checkbox e o campo de descrição */
+}
+
+.option-description {
+  flex-grow: 1;
+  padding: 12px; /* Mais espaço para o texto */
+  border: 1px solid #ced4da; /* Borda semelhante aos campos de entrada */
+  border-radius: 6px; /* Arredondamento para combinar com o estilo geral */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Efeitos de foco */
+}
+
+.option-description:focus {
+  border-color: #007bff; /* Cor de foco do campo de descrição */
+  outline: none; /* Remover contorno padrão */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Efeito de sombra ao focar */
+}
+
+.removeOptionButton {
+  margin-left: 10px;
+  padding: 8px 12px; /* Ajuste no padding */
+  background-color: #dc3545; /* Vermelho para ação de remoção */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Efeito de transição */
+}
+
+.removeOptionButton:hover {
+  background-color: #c82333; /* Cor ao passar o mouse */
+}
+
+.addOptionButton {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #007bff; /* Azul para adicionar opção */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Efeito de transição */
+}
+
+.addOptionButton:hover {
+  background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+.termoButtonContainer {
+  margin-top: 20px;
+  display: flex; /* Alinha os botões em linha */
+  justify-content: space-between; /* Espaçamento entre os botões */
+}
+
+.button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.loginButton {
+  background-color: #2ecc71; /* Verde para ação de login */
+  color: white;
+}
+
+.loginButton:hover {
+  background-color: #27ae60; /* Cor ao passar o mouse */
+}
+
+.cancelButton {
+  background-color: #e74c3c; /* Vermelho para cancelar */
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #c0392b; /* Cor ao passar o mouse */
+}
