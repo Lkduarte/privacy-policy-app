@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Aplicativo de Política de Privacidade
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Visão Geral
 
-## Available Scripts
+O Aplicativo de Política de Privacidade é uma aplicação web projetada para ajudar os usuários a criar, gerenciar e exibir políticas de privacidade para seus sites ou aplicativos. Este projeto visa fornecer uma interface amigável e um backend confiável para lidar com os dados das políticas de privacidade de forma eficiente.
 
-In the project directory, you can run:
+## Funcionalidades
 
-### `npm start`
+- **Criar Políticas de Privacidade:** Usuários podem criar políticas de privacidade usando um formulário simples e intuitivo.
+- **Editar e Atualizar Políticas:** Políticas existentes podem ser editadas e atualizadas facilmente.
+- **Visualizar Políticas:** Políticas podem ser visualizadas em um formato limpo e legível.
+- **Integração com API:** Fornece endpoints de API para gerenciar políticas programaticamente.
+- **Autenticação de Usuário:** Autenticação segura de usuários para proteger o acesso às funcionalidades de gerenciamento de políticas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tecnologias Utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend:**
+  - React
+  - Bootstrap
+  - Axios
 
-### `npm test`
+- **Backend:**
+  - Node.js
+  - Express
+  - MongoDB
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instalação
 
-### `npm run build`
+### Pré-requisitos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14.x ou superior)
+- MongoDB (instância local ou na nuvem)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Passos
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone o repositório:**
 
-### `npm run eject`
+    ```bash
+    git clone https://github.com/lucasrodrigof/privacy-policy-app.git
+    cd privacy-policy-app
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Instale as dependências:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    npm install
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Configure as variáveis de ambiente:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    Crie um arquivo `.env` no diretório raiz e adicione as seguintes variáveis:
 
-## Learn More
+    ```env
+    MONGODB_URI=sua_uri_mongodb
+    JWT_SECRET=sua_chave_secreta
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Execute a aplicação:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    npm start
+    ```
 
-### Code Splitting
+    A aplicação estará disponível em `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Endpoints da API
 
-### Analyzing the Bundle Size
+### Autenticação
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Login:**
+  - `POST /api/auth/login`
 
-### Making a Progressive Web App
+- **Registrar:**
+  - `POST /api/auth/register`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Políticas
 
-### Advanced Configuration
+- **Criar uma nova política:**
+  - `POST /api/policies`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Obter todas as políticas:**
+  - `GET /api/policies`
 
-### Deployment
+- **Obter uma política específica:**
+  - `GET /api/policies/:id`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Atualizar uma política:**
+  - `PUT /api/policies/:id`
 
-### `npm run build` fails to minify
+- **Deletar uma política:**
+  - `DELETE /api/policies/:id`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contribuindo
+
+Contribuições são bem-vindas! Por favor, siga estes passos para contribuir:
+
+1. Faça um fork do repositório.
+2. Crie uma nova branch: `git checkout -b feature/sua-nova-funcionalidade`.
+3. Faça suas alterações e as commit: `git commit -m 'Adicionei uma nova funcionalidade'`.
+4. Faça o push para a branch: `git push origin feature/sua-nova-funcionalidade`.
+5. Envie um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Contato
+
+Para quaisquer dúvidas ou problemas, por favor, abra uma issue no repositório ou entre em contato pelo e-mail lucas.gt.1998@gmail.com.
