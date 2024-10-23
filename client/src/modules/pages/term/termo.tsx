@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./termStyles.css";
 import { ISignedTerm, ITerm } from "../../../utils/interfaces";
 import { AuthContext } from "../../../contexts/auth-context";
+import { api } from "../../../services/api";
+import Swal from "sweetalert2";
+import userController from "../../../services/controllers/userController";
 
 const defaultSignTermObject = (term: ITerm | null) => {
   return {
@@ -24,6 +27,44 @@ export const TermPage = () => {
     defaultSignTermObject(mustSignTerm)
   );
   const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    Swal.fire({
+      title: "Tem certeza?",
+      text: "Esta ação é irreversível. Você realmente deseja excluir sua conta?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Sim, excluir",
+      cancelButtonText: "Cancelar",
+      reverseButtons: true,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await userController.deleteUser(user?._id ?? "");
+
+          Swal.fire({
+            title: "Conta excluída!",
+            text: "Sua conta foi excluída com sucesso.",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+
+          localStorage.removeItem("user");
+          api.defaults.headers.common["Cookie"] = null;
+
+          navigate("/login");
+        } catch (error) {
+          Swal.fire({
+            title: "Erro",
+            text: "Ocorreu um erro ao tentar excluir a conta.",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
+          console.error("Erro ao excluir a conta:", error);
+        }
+      }
+    });
+  };
 
   useEffect(() => {
     if (!user || !mustSignTerm) {
@@ -55,7 +96,7 @@ export const TermPage = () => {
             checked={data.isAccepted}
             onChange={(e) => setData({ ...data, isAccepted: e.target.checked })}
           />
-          <label htmlFor="promoTitle">
+          <label style={{ fontWeight: "bold" }} htmlFor="promoTitle">
             Ao confirmar você confirma que leu e ACEITOU os termos acima
             (Obrigatório).
           </label>
@@ -93,12 +134,14 @@ export const TermPage = () => {
             onClick={() => {
               if (data.isAccepted) {
                 signCurrentTerm(data);
+              } else {
+                alert("Você deve aceitar os termos principais para continuar.");
               }
             }}
           >
             Confirmar
           </button>
-          <button className="button cancelButton">
+          <button className="button cancelButton" onClick={handleDelete}>
             Recusar (Excluir conta)
           </button>
         </div>

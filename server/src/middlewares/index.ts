@@ -57,9 +57,9 @@ export const isOwner = async (
       return;
     }
 
-    if (currentUserId.toString() === id) {
+    if (currentUserId.toString() !== id) {
       res.status(403).json({
-        message: "User can't delete himself",
+        message: "User can only delete himself",
       });
       return;
     }

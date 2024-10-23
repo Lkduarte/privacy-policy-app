@@ -5,7 +5,7 @@ import { OptionType } from "./enums/OptionTypeEnum";
 const OptionSchema = new mongoose.Schema({
   _id: { type: String, default: () => nanoid() },
   description: { type: String, required: true },
-  type: { type: OptionType, required: true },
+  type: { type: OptionType, required: false },
 });
 
 const SignOptionHistorySchema = new mongoose.Schema({

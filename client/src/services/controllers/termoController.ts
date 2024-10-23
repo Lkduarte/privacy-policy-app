@@ -11,6 +11,20 @@ class TermoController {
       return e;
     }
   }
+
+  async register(data: any) {
+    try {
+      const response = await request(
+        RequestMethods.POST,
+        "/term/register",
+        data
+      );
+
+      return response.data;
+    } catch (e) {
+      return e;
+    }
+  }
 }
 
 const termoController = new TermoController();

@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { ISignedTerm } from "../../../utils/interfaces";
 import "./termStyles.css";
 import termoController from "../../../services/controllers/termoController";
+import userController from "../../../services/controllers/userController";
+import { api } from "../../../services/api";
+import Swal from "sweetalert2";
 
 interface IOption {
   _id: string;
@@ -42,7 +45,7 @@ export const ActualTermPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const currentTerm: ITerm = await termoController.getAtual(); // Obtém o termo atual
+      const currentTerm: ITerm = await termoController.getAtual(); 
       setData(defaultSignTermObject(currentTerm));
       setTerm(currentTerm);
       if (!user) {
@@ -77,7 +80,7 @@ export const ActualTermPage = () => {
             checked={data.isAccepted}
             onChange={(e) => setData({ ...data, isAccepted: e.target.checked })}
           />
-          <label htmlFor="acceptTerm">
+          <label style={{ fontWeight: "bold" }} htmlFor="acceptTerm">
             Ao confirmar você confirma que leu e ACEITOU os termos acima
             (Obrigatório).
           </label>
@@ -129,8 +132,8 @@ export const ActualTermPage = () => {
           >
             Confirmar
           </button>
-          <button className="button cancelButton">
-            Recusar (Excluir conta)
+          <button className="button cancelButton" onClick={() => navigate(-1)}>
+            Voltar
           </button>
         </div>
       </div>

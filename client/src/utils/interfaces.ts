@@ -20,6 +20,7 @@ interface ISignedTerm {
 }
 
 interface ISignedOption {
+  description?: string | number | readonly string[] | undefined;
   optionId: string;
   isAccepted: boolean;
 }

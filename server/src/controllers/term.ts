@@ -67,9 +67,9 @@ export const register = async (req: Request, res: Response): Promise<any> => {
   try {
     const { description, options } = req.body;
 
-    if (!description || !options) {
+    if (!description || !options || options.length === 0) {
       return res.status(400).json({
-        message: "description and options are required for registration",
+        message: "Description and at least one option are required.",
       });
     }
 
@@ -81,12 +81,11 @@ export const register = async (req: Request, res: Response): Promise<any> => {
       usersSigned: [],
     });
 
-    console.log(term);
-
-    return res.status(200).json(term).end();
+    return res.status(200).json(term);
   } catch (error) {
-    return res.status(400).json({
-      message: "An error occurred when tried to create term",
+    console.error(error);
+    return res.status(500).json({
+      message: "An error occurred while trying to create the term.",
     });
   }
 };

@@ -8,6 +8,7 @@ import { TermPage } from "../modules/pages/term/termo";
 import Header from "../modules/components/header/header";
 import UserDashboard from "../modules/pages/dashboard/UserDashboard";
 import { ActualTermPage } from "../modules/pages/term/actualTerm";
+import { EditActualTermPage } from "../modules/pages/term/editActualTerm/editActualTerm";
 
 export const Router = () => {
   const PrivateAuth = ({ children }: any) => {
@@ -64,6 +65,14 @@ export const Router = () => {
             element={
               <PrivateAuth>
                 <ActualTermPage />
+              </PrivateAuth>
+            }
+          />
+          <Route
+            path="/editActualTerm"
+            element={
+              <PrivateAuth>
+                <EditActualTermPage />
               </PrivateAuth>
             }
           />
