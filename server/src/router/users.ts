@@ -25,7 +25,7 @@ export default (router: Router) => {
     hasSignedCurrentTerm
   );
   router.post("/user/register", register);
-  router.delete("/user/deleteUser/:id", isAuthenticated, isOwner, deleteUser);
+  router.delete("/user/deleteUser/:id", deleteUser);
   router.patch("/user/updateUser/:id", isAuthenticated, updateUser);
   router.post("/user/signCurrentTerm/:id", isAuthenticated, signCurrentTerm);
   router.post("/user/updatePassword/:id", isAuthenticated, updatePassword);

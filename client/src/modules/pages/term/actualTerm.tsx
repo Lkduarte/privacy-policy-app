@@ -5,9 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { ISignedTerm } from "../../../utils/interfaces";
 import "./termStyles.css";
 import termoController from "../../../services/controllers/termoController";
-import userController from "../../../services/controllers/userController";
-import { api } from "../../../services/api";
-import Swal from "sweetalert2";
 
 interface IOption {
   _id: string;
@@ -45,7 +42,7 @@ export const ActualTermPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const currentTerm: ITerm = await termoController.getAtual(); 
+      const currentTerm: ITerm = await termoController.getAtual();
       setData(defaultSignTermObject(currentTerm));
       setTerm(currentTerm);
       if (!user) {
@@ -72,6 +69,8 @@ export const ActualTermPage = () => {
           disabled={true}
         />
 
+        <h3>Obrigatório:</h3>
+
         <div className="checkboxContainer">
           <input
             className="checkbox"
@@ -81,10 +80,11 @@ export const ActualTermPage = () => {
             onChange={(e) => setData({ ...data, isAccepted: e.target.checked })}
           />
           <label style={{ fontWeight: "bold" }} htmlFor="acceptTerm">
-            Ao confirmar você confirma que leu e ACEITOU os termos acima
-            (Obrigatório).
+            Ao confirmar você confirma que leu e ACEITOU os termos acima.
           </label>
         </div>
+
+        <h3>Selecione as opções que deseja receber:</h3>
 
         {data.signedOptions.map((signedOption, index) => {
           const option = term.options.find(

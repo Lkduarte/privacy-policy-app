@@ -50,7 +50,6 @@ export const getCurrent = async (req: Request, res: Response): Promise<any> => {
     if (!term) {
       return res.status(404).json({ message: "Term does not exist" });
     }
-    term.usersSigned = [];
 
     const termo = term;
 

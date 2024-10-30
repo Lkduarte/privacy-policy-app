@@ -29,6 +29,7 @@ export const TermPage = () => {
   const navigate = useNavigate();
 
   const handleDelete = async () => {
+    console.log(user);
     Swal.fire({
       title: "Tem certeza?",
       text: "Esta ação é irreversível. Você realmente deseja excluir sua conta?",
@@ -88,6 +89,9 @@ export const TermPage = () => {
           value={mustSignTerm.description}
           disabled={true}
         />
+
+        <h3>Obrigatório:</h3>
+
         <div className="checkboxContainer">
           <input
             className="checkbox"
@@ -96,11 +100,14 @@ export const TermPage = () => {
             checked={data.isAccepted}
             onChange={(e) => setData({ ...data, isAccepted: e.target.checked })}
           />
+
           <label style={{ fontWeight: "bold" }} htmlFor="promoTitle">
-            Ao confirmar você confirma que leu e ACEITOU os termos acima
-            (Obrigatório).
+            Ao confirmar você confirma que leu e ACEITOU os termos acima.
           </label>
         </div>
+
+        <h3>Selecione as opções que deseja receber:</h3>
+
         {mustSignTerm.options.map((option: any, index: any) => (
           <div className="checkboxContainer" key={option._id}>
             <input
